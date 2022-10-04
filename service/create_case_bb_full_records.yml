@@ -32,7 +32,7 @@
 
 - var: email_var
   value:
-    ${{firstname_var}}.${{lastname_var}}@testmail.com
+    ${{firstname_var}}.${{lastname_var}}@testmail2.com
 
 #- var: Birthdate_var
 #  value:

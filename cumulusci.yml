@@ -1,0 +1,22 @@
+minimum_cumulusci_version: '3.66.0'
+project:
+    name: TCB_Case_Generation_2
+    package:
+        name: TCB_Case_Generation_2
+        api_version: '55.0'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/TCB_Case_Generation_2/tests
+            options:
+                outputdir: robot/TCB_Case_Generation_2/results
+
+    robot_testdoc:
+        options:
+            path: robot/TCB_Case_Generation_2/tests
+            output: robot/TCB_Case_Generation_2/doc/TCB_Case_Generation_2_tests.html
+

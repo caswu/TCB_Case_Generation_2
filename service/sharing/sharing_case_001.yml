@@ -1,0 +1,63 @@
+
+
+#Case Parameters
+
+- var: case_Priority_var
+  value: "Normal"
+
+#- var: case_Status_var
+#  value: "In Progress"
+
+- var: case_Origin_var
+  value: "Email"
+
+- var: case_Issue_level_1_var
+  value: "Customer"
+
+- var: case_Issue_level_2_var
+  value: "Other"
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+
+- object: Case
+  fields:
+    Description: ${{sharing_description_var}}
+    Subject: ${{sharing_subject_var}}
+    AccountId:
+      reference: Account
+    ContactId:
+      reference: Account.PersonContactId
+    Issue_level_1__c: Customer
+    Issue_level_2__c: Other
+    RecordType: ${{case_record_type_var}}
+    Origin: Email
+    Priority: ${{case_Priority_var}}
+    Status: ${{case_Status_var}}
+    CreatedById: ${{case_ownerid_001_var}}
+    LastModifiedById: ${{case_ownerid_001_var}}
+    OwnerId: ${{case_ownerid_001_var}}
+    Receiving_Email__c: ${{company_email_var}}
+    Language: vi
+    Currency__c: VND
+    Reason:
+      random_choice:
+        Customer wants to make a transaction: 40%
+        Customer wants to be reimbursed: 40%
+        Customer wants to receive special offers: 20%
+    Comments: ${{Description_var}}
+    Customer_Feedback__c: ${{Description_var}}
+    Customer_Agree__c:
+      random_choice:
+        Agree: 40%
+        Partial Agree: 40%
+        Not Agree: 20%
+    ProductId: 01tN0000009lJJgIAM
+    Related_Branch__c: a0eN00000098B7eIAE
+#    Related_Staff__c:
+    Root_Cause_L1__c: Process
+    Root_Cause_L2__c: "Lack of procedures/regulations"
+    Requested_Amount__c: "100.0"
+    Settlement_Amount__c: "99.0"
+#    Financial_Remedy__c: "Yes"

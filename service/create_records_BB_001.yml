@@ -1,0 +1,7 @@
+# create account BB
+# record type Case : Complaint
+
+- include_file: create_account_bb.yml
+- include_file: create_contact_bb.yml
+- include_file: create_case_bb.yml
+#- include_file: create_lead_bb.yml

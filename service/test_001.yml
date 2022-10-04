@@ -1,0 +1,54 @@
+
+- var: ref_owneridBB_001_var
+  value: 005N000000C5KFK
+
+# Product & Service IMPLEMENT
+- var: case_Topic_Category_var
+  value: TC0123
+
+# FAX/EMAIL SI0646
+- var: case_Subcategory_Item_var
+  value: SI0646
+
+- var: case_Topic_var
+  value: Service Request
+
+# FAX/EMAIL C0038
+# - var: case_Category_var
+#   value: C0117
+
+# - var: case_SubCategory_var
+#   value: Service Request
+
+# - var: case_Item_var
+#   value: Service Request
+
+- var: case_record_type_var
+  value: "TCB_CM_Service_Request"
+#TCB_GTS_Complaint
+
+
+- object: Account
+  fields:
+    Name: Test Account 1
+    RecordType: TCB_BB_Business_Account
+
+- object: Contact
+  fields:
+    FirstName: Test First Name 1
+    LastName: Test Last Name 1
+    email: test@email.com
+    AccountId:
+      reference: Account
+
+- object: Case
+  fields:
+    Subject: subject
+    AccountId:
+      reference: Account
+    ContactId:
+      reference: Contact
+    Issue_level_1__c: Customer
+    Issue_level_2__c: Other
+    RecordType:  ${{case_record_type_var}}
+    Origin: Email

@@ -1,0 +1,14 @@
+
+- object: CaseTeamMember
+  fields:
+    ParentId:
+      reference: Case
+    MemberId: 005N000000C5FmrIAF
+    TeamRoleId: 0B7N00000008TrHKAU
+
+- object: CaseTeamMember
+  fields:
+    ParentId:
+      reference: Case
+    MemberId: 005N000000C5FmsIAF
+    TeamRoleId: 0B7N00000008TrMKAU

@@ -1,0 +1,47 @@
+- object: Account
+  nickname: AccountBB
+  fields:
+    Name:
+      fake: company
+    RecordType: TCB_BB_Business_Account
+
+- object: Contact
+  nickname: ContactBB
+  fields:
+    FirstName:
+      fake: firstname
+    AccountId:
+          reference: Account
+
+- object: opportunity
+  nickname: OpportunityBB
+  fields:
+      Name: Opportunity BB Account
+      FirstName:
+      fake: firstname
+      AccountId:
+          reference: Account
+      ContactId:
+          reference: Contact
+      RecordType: TCB_BB_Business_Account
+
+- object: case
+  nickname: CaseBB
+  fields:
+      Name: Opportunity BB Account
+
+      FirstName:
+      fake: firstname
+      AccountId:
+          reference: Account
+      ContactId:
+          reference: Contact
+      RecordType: Complaint
+
+
+
+- object: lead
+  nickname: LeadBB
+  fields:
+      Name: lead BB Account
+      RecordType: TCB_BB_Business

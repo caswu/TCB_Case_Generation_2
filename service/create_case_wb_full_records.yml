@@ -1,0 +1,184 @@
+- include_file: create_records_full_ids.yml
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: case_Segment_var
+  value: "VVIP7"
+
+- var: case_Sub_segment_var
+  value: "Construction"
+
+- var: Passport_number_var
+  value: ${{fake.Numerify(text='%%#############')}}
+
+- var: Identity_Number_var
+  value: ${{fake.Numerify(text='%%#############')}}
+
+- var: email_var
+  value:
+    ${{firstname_var}}.${{lastname_var}}@testmail.com
+
+#- var: Birthdate_var
+#  value:
+#    ${{fake.DateObject}}
+#    fake.DateOfBirth(0,18,90)
+
+- var: account_RecordTypeWB_var
+  value: "TCB_WB_Normal_Account"
+
+
+- object: Account
+  nickname: AccountWB
+  fields:
+    Description: ${{Description_var}}
+    Name: ${{company_var}} - ${{ref_recordWB_var}} - Functional Testing SF Build Team
+    BillingStreet:
+      fake: StreetAddress
+    BillingCity:
+      ${{city_var}}
+  #  City__pc: ${{city_var}}
+    City_province_Business_Registration__c: ${{city_var}}
+  #  City_province_Mailing_Billing__c: ${{city_var}}
+    BillingState:
+      fake: State
+    BillingPostalCode:
+      fake: PostalCode
+    BillingCountry:
+      ${{country_var}}
+  #  Country__pc: ${{country_var}}
+    Country_Business_Registration__c: ${{country_var}}
+    Phone:
+      ${{PhoneNumber1_var}}
+    Tax_Code__c: ${{case_Tax_Code_var}}
+    Segment__c: ${{case_Segment_var}}
+    Sub_segment__c: ${{case_Sub_segment_var}}
+    CreatedById: ${{ref_owneridWB_001_var}}
+    LastModifiedById: ${{ref_owneridWB_001_var}}
+    OwnerId: ${{ref_owneridWB_001_var}}
+    RecordType: ${{account_RecordTypeWB_var}}
+    Social_Name__c: ${{company_var}}
+    Company_Email__c: ${{company_email_var}}
+    Debt_classification__c: AA
+# Website:
+    Fax: ${{PhoneNumber4_var}}
+#    Eco_sector__c:
+#      random_choice:
+#        Others: 100%
+    Customer_Group__c:
+      random_choice:
+        A: 40%
+        B: 40%
+        C: 20%
+    NumberOfEmployees:
+      random_number:
+        min: 10
+        max: 250
+    Total_assets__c:
+      random_number:
+        min: 7000000
+        max: 11000000
+    Total_debt__c:
+      random_number:
+        min: 200000
+        max: 500000
+    Total_receivable__c:
+      random_number:
+        min: 1000000
+        max: 1200000
+    Total_payable__c:
+      random_number:
+        min: 250000
+        max: 450000
+
+
+- object: Contact
+  nickname: ContactWB
+  fields:
+    Description: ${{Description_var}}
+    FirstName:
+      ${{firstname_var}}
+    LastName:
+      ${{lastname_var}} ${{ref_recordWB_var}} Functional Testing SF Build Team
+    LastNameLocal: ${{lastname_var}} ${{ref_recordWB_var}}
+    email:
+      ${{email_var}}
+    Phone: ${{PhoneNumber2_var}}
+    MobilePhone: ${{PhoneNumber3_var}}
+    Title__c:
+      random_choice:
+        Manager: 40%
+        Officer: 40%
+        CEO: 10%
+        CFO: 10%
+    Title:
+      random_choice:
+        Mr.: 50%
+        Mrs.: 50%
+    Identity_Number__c: ${{Identity_Number_var}}
+    Passport_number__c: ${{Passport_number_var}}
+    Passport_Place_of_issue__c:
+      fake: city
+    Passport_Date_of_Issue__c:
+      ${{passport_issue_date_var}}
+    Birthdate:
+      ${{birthdate_var}}
+    AccountId:
+      reference: Account
+    CreatedById: ${{ref_owneridWB_001_var}}
+    LastModifiedById: ${{ref_owneridWB_001_var}}
+    OwnerId: ${{ref_owneridWB_001_var}}
+
+
+
+- object: Case
+  fields:
+    Description: ${{Description_var}}
+    Subject: ${{case_subject_var}}
+    AccountId:
+      reference: Account
+#    AccountId: ${{ref_accountWB_001_var}}
+    ContactId:
+      reference: Contact
+#    ContactId: ${{ref_contactWB_001_var}}
+    Issue_level_1__c: Customer
+    Issue_level_2__c: Other
+    RecordType: ${{case_record_type_var}}
+    Origin: ${{case_Origin_var}}
+    Priority: ${{case_Priority_var}}
+    Status: ${{case_Status_var}}
+    Topic_and_Category__c: ${{case_Topic_Category_var}}
+    Sub_Category_and_Item__c: ${{case_Subcategory_Item_var}}
+    Topic__c: ${{case_Topic_var}}
+    Category__c: ${{case_Category_var}}
+    Sub_Category__c: ${{case_Sub_Category_var}}
+    Item__c: ${{case_Item_var}}
+    Complexity_Level__c: ${{case_Complexity_Level_var}}
+    Sub_Type__c: ${{case_Sub_Type_var}}
+    In_Charge_Unit__c: ${{case_In_Charge_Unit_var}}
+    TopicandCategoryGTS__c: ${{case_Topic_CategoryGTS_var}}
+    SubCategoryandItemGTS__c: ${{case_Subcategory_ItemGTS_var}}
+    TopicGTS__c: ${{case_TopicGTS_var}}
+    CategoryGTS__c: ${{case_CategoryGTS_var}}
+    SubCategoryGTS__c: ${{case_SubCategoryGTS_var}}
+    ItemGTS__c: ${{case_ItemGTS_var}}
+    CreatedById: ${{case_ownerid_var}}
+    LastModifiedById: ${{case_ownerid_var}}
+    OwnerId: ${{case_ownerid_var}}
+    Receiving_Email__c: ${{company_email_var}}
+    Language: vi
+    Currency__c: VND
+    Reason:
+      random_choice:
+        Customer wants to make a transaction: 40%
+        Customer wants to be reimbursed: 40%
+        Customer wants to receive special offers: 20%
+    Comments: ${{Description_var}}
+    Customer_Feedback__c: ${{Description_var}}
+    Customer_Agree__c:
+      random_choice:
+        Agree: 40%
+        Partial Agree: 40%
+        Not Agree: 20%
+#    ProductId: 01tN0000009lJKRIA2
+    Financial_Remedy__c: "Yes"

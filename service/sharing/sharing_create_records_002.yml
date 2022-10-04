@@ -1,0 +1,27 @@
+# create sharing records
+# record type Case : Complaint
+# BU RBG
+
+
+- include_file: sharing_records_002_params.yml
+
+- include_file: sharing_account_001.yml
+#- include_file: create_contact_rbg_001_complaint.yml
+- include_file: sharing_case_001.yml
+#- include_file: sharing_lead_001.yml
+
+
+# create case team
+#- include_file: sharing_case_rbg_001_case_team.yml
+#- include_file: sharing_case_rbg_001_tasks.yml
+#- include_file: create_lead_bb_001.yml
+
+
+
+
+#- include_file: create_case_bb_001_comments.yml
+#- include_file: create_case_bb_001_contentnote.yml
+
+
+#- include_file: create_lead_bb_001.yml
+#- include_file: create_opportunity_bb_001.yml

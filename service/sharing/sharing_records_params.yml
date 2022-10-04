@@ -1,0 +1,148 @@
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
+- plugin: snowfakery.standard_plugins.Salesforce
+#- plugin: snowfakery.standard_plugins.Salesforce.SOQLDataset
+- plugin: snowfakery.standard_plugins.Counters
+- plugin: snowfakery.standard_plugins.UniqueId
+
+- var: snowfakery_locale
+  value: en_US
+
+#- var: ref_recordBB_var
+#  value: '${{fake.Bothify(text=''BU: ??-####'', letters=''BB'')}}'
+
+#- var: ref_recordRBG_var
+#  value: '${{fake.Bothify(text=''BU: ??-####'', letters=''RBG'')}}'
+
+#User ids for scenario
+
+# Account record owner: BB
+#- var: ref_owneridBB_001_var
+#  value: 005N000000C5KFK
+
+# Account record owner: WB
+#- var: ref_owneridWB_001_var
+##  value: 005N000000C5KFK
+
+# Account record owner: RBG
+#- var: ref_owneridRBG_001_var
+#  value: 005N000000C5EglIAF
+
+#Case record owner: CA Expert
+#- var: case_ownerid_001_var
+#  value: 005N000000C5FmrIAF
+
+#Case record owner: Mkt Expert
+#- var: case_ownerid_001_var
+#  value:
+
+#Case record owner: Mkt Expert
+#- var: case_ownerid_001_var
+#  value:
+
+#Case record owner: RBG
+#- var: case_ownerid_001_var
+#  value: 005N000000C5EglIAF
+
+- var: company_var
+  value:
+    fake: company
+
+- var: company_email_var
+  value:
+    fake: Email
+
+- var: lastname_var
+  value:
+    fake: LastName
+
+- var: firstname_var
+  value:
+    fake: firstname
+
+- var: city_var
+  value: "AN-GIANG"
+
+- var: country_var
+  value: VN
+
+- var: middle_var
+  value:
+    fake: firstname
+
+
+
+#${{fake.Msisdn}}
+
+- var: PhoneGenerator1_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+- var: PhoneGenerator2_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+- var: PhoneGenerator3_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+#- var: PhoneNumber1_var
+#  value: ${{PhoneGenerator1_var}}
+
+#- var: PhoneNumber3_var
+#  value: ${{PhoneGenerator3_var}}
+
+#- var: MobilePhone1_var
+  value: ${{PhoneGenerator2_var}}
+
+- var: PhoneNumber1_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber2_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber3_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber4_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+#- var: account_Description_var
+#  value: "Functional Testing SF Build Team - PS8.SR3.2.01 Assign case auto LOB= Business Banking AND Record Type =  Service Request  AND Category = IMPLEMENT"
+
+# serviced request
+# - var: case_subject_var
+#  value: "Case scenario BB 001 - Functional Testing SF Build Team - ${{company_var}} - ${{ref_recordBB_var}}"
+
+- var: passport_issue_date_var
+  value:
+    date_between:
+      start_date: 2019-01-01
+      end_date: 2022-01-01
+
+- var: birthdate_var
+  value:
+    date_between:
+      start_date: 1940-01-01
+      end_date: 2000-01-01
+
+
+- var: Army_ID_Date_of_Issue_var
+  value:
+    date_between:
+      start_date: 2012-01-01
+      end_date: 2022-01-01
+
+- var: Identity_Date_of_Issue_var
+  value:
+    date_between:
+      start_date: 2019-01-01
+      end_date: 2022-01-01
+
+- var: rating_date_var
+  value:
+    date_between:
+      start_date: 2022-01-01
+      end_date: 2022-09-29

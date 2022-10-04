@@ -1,0 +1,21 @@
+
+- var: task_start_date_var
+  value:
+    date_between:
+      start_date: 2022-09-25
+      end_date: 2022-09-30
+
+- var: task_activity_date_var
+  value:
+    date_between:
+      start_date: 2022-09-30
+      end_date: 2022-10-30
+
+- object: ContentNote
+  fields:
+    Tittle: "title content note"
+    TextPreview: "content note 002"
+    FileExtension: snote
+    FileType: SNOTE
+    ParentId:
+      reference: Case

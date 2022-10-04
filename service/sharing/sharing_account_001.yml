@@ -1,0 +1,88 @@
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: Army_Id_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: Identity_Number_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: Passport_number_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: case_Segment_var
+  value: "MM"
+
+- var: case_Sub_segment_var
+  value: "Services Other"
+
+- object: Account
+  nickname: AccountRBG
+  fields:
+    Description: ${{sharing_description_var}}
+#    Name: ${{company_var}} - ${{ref_recordRBG_var}} - Functional Testing SF Build Team
+    Army_ID_Date_of_Issue__pc: ${{Army_ID_Date_of_Issue_var}}
+    Army_ID_Place_of_Issue__pc: "Hanoi 1"
+    Army_Id__pc: ${{Army_Id_var}}
+    City__pc: "AN-GIANG"
+#    Corporate_Account__pc: 001N0000027I8IAIA0
+    Country__pc: VN
+    FinServ__ContactPreference__pc: Mobile
+    FinServ__Gender__pc: Male
+    FinServ__MaritalStatus__pc: Single
+#    FinServ__Status__c: Prospect
+    FirstName: ${{firstname_var}}
+    Identity_Date_of_Issue__pc: ${{Identity_Date_of_Issue_var}}
+    Identity_Number__pc: ${{Identity_Number_var}}
+    Identity_Place_of_issue__pc: "Hanoi 2"
+    LastName: ${{lastname_var}} ${{sharing_subject_var}}
+#    Line_of_Business__c: "Retail Banking"
+    MiddleName: ${{middle_var}}
+#    Name:
+    Nationality__pc: "VN"
+    Passport_Date_of_Issue__pc: ${{passport_issue_date_var}}
+    Passport_number__pc: ${{Passport_number_var}}
+    Passport_Place_of_issue__pc: "Hanoi 3"
+    PersonBirthdate: ${{birthdate_var}}
+    PersonDoNotCall: false
+    PersonEmail: ${{email_var}}
+    PersonFirstNameLocal: ${{firstname_var}}
+    PersonLastNameLocal: ${{lastname_var}}
+    PersonMobilePhone: ${{PhoneNumber1_var}}
+    Phone: ${{PhoneNumber2_var}}
+    Salutation: "Mr."
+    Segment__c: "Mass Affluent"
+    Skip_Fraud_Checking__c: true
+    Social_Name__c: ${{lastname_var}}
+    TCB_Sector__c: "TCb Sector"
+    VIP_type__c:
+      random_choice:
+        VIP1: 40%
+        VIP2: 20%
+        VIP3: 10%
+        "": 30%
+    FinServ__CreditRating__c:
+      random_choice:
+        Good: 100%
+    FinServ__RiskTolerance__c:
+      random_choice:
+        Agressive: 10%
+        Conservative: 60%
+        Moderate: 30%
+    FinServ__Status__c:
+      random_choice:
+        Prospect: 100%
+    PersonContactId:
+      Salesforce.SpecialObject: PersonContact
+    Rating: "AAA"
+    Rating_date__c: ${{rating_date_var}}
+    Debt_classification__c:
+      random_choice:
+        A: 40%
+        B: 20%
+        C: 10%
+        D: 30%
+    CreatedById: ${{sharing_ownerid_001_var}}
+    LastModifiedById: ${{sharing_ownerid_001_var}}
+    OwnerId: ${{sharing_ownerid_001_var}}
+    RecordType: ${{account_record_type_var}}

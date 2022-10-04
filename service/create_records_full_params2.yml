@@ -1,0 +1,104 @@
+- var: ref_recordBB_var
+  value: '${{fake.Bothify(text=''BU: BB-####'', letters=''BB'')}}'
+
+- var: ref_recordRBG_var
+  value: '${{fake.Bothify(text=''BU: RBG-####'', letters=''RBG'')}}'
+
+
+- var: company_var
+  value:
+    fake: company
+
+- var: company_email_var
+  value:
+    fake: Email
+
+- var: lastname_var
+  value:
+    fake: LastName
+
+- var: firstname_var
+  value:
+    fake: firstname
+
+- var: city_var
+  value: "AN-GIANG"
+
+- var: country_var
+  value: VN
+
+- var: middle_var
+  value:
+    fake: firstname
+
+# Service request
+- var: Description_var
+  value: "Functional Testing SF Build Team PS8.SR3.2.01 Assign case auto LOB Business Banking AND Record Type Service Request AND Category IMPLEMENT Scenario BB-001"
+
+# serviced request
+- var: case_subject_var
+  value: "Case scenario BB 001 - Functional Testing SF Build Team - ${{company_var}} - ${{ref_recordBB_var}}"
+
+#${{fake.Msisdn}}
+
+- var: PhoneGenerator1_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+- var: PhoneGenerator2_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+- var: PhoneGenerator3_var
+  value:
+    UniqueId.AlphaCodeGenerator:
+      alphabet: 0123456789
+
+#- var: PhoneNumber1_var
+#  value: ${{PhoneGenerator1_var}}
+
+#- var: PhoneNumber3_var
+#  value: ${{PhoneGenerator3_var}}
+
+#- var: MobilePhone1_var
+  value: ${{PhoneGenerator2_var}}
+
+- var: PhoneNumber1_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber2_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber3_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+- var: PhoneNumber4_var
+  value: ${{fake.Numerify(text='%%########')}}
+
+
+- var: passport_issue_date_var
+  value:
+    date_between:
+      start_date: 2019-01-01
+      end_date: 2022-01-01
+
+- var: birthdate_var
+  value:
+    date_between:
+      start_date: 1940-01-01
+      end_date: 2000-01-01
+
+
+- var: Army_ID_Date_of_Issue_var
+  value:
+    date_between:
+      start_date: 2012-01-01
+      end_date: 2022-01-01
+
+- var: Identity_Date_of_Issue_var
+  value:
+    date_between:
+      start_date: 2019-01-01
+      end_date: 2022-01-01

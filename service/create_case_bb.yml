@@ -1,0 +1,155 @@
+
+#Case Parameters
+
+- var: case_Priority_var
+  value: "Normal"
+
+- var: case_Status_var
+  value: "In Progress"
+
+- var: case_Origin_var
+  value: "Email"
+
+- var: case_Issue_level_1_var
+  value: "Customer"
+
+- var: case_Issue_level_2_var
+  value: "Other"
+
+
+# Functional Testing SF Build Team - PS8.SR3.2.01 Assign case auto
+# LOB= Business Banking AND RecordType =  Service Request  AND Category = IMPLEMENT
+
+#- var: case_LOB_Code_var
+# Defined by account and formula field
+#  value: Business Banking
+
+#- var: case_Record_Type_var
+#  value: Service Request
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+
+#Category = TRIEN KHAI
+# TopicID__c
+
+- var: case_Topic_Category_var
+  value: TC0123
+
+- var: case_Subcategory_Item_var
+  value: SI0646
+
+- var: case_Topic_var
+  value: T0032
+
+- var: case_Category_var
+  value: C0117
+
+- var: case_Sub_Category_var
+  value: SC0322
+
+#- var: case_Item_var
+#  value:
+
+- var: case_Complexity_Level_var
+  value: Basic
+
+- var: case_Sub_Type_var
+  value: Instruction
+
+- var: case_Sub_Type_var
+  value: Instruction
+
+- var: case_In_Charge_Unit_var
+  value: "GTS Service/ chi nhánh"
+
+
+- var: case_Topic_CategoryGTS_var
+  value: GTSTC001
+
+- var: case_Subcategory_ItemGTS_var
+  value: GTSSI001
+
+- var: case_TopicGTS_var
+  value: GTST001
+
+- var: case_CategoryGTS_var
+  value: GTSC001
+
+- var: case_SubCategoryGTS_var
+  value: GTSSC001
+
+# - var: case_Topic_var
+#   value: Service Request
+
+# - var: case_Category_var
+#   value: C0117
+
+# - var: case_SubCategory_var
+#   value: Service Request
+
+# - var: case_Item_var
+#   value: Service Request
+
+# "SF Functional Testing - Case BB  ${{company_var}} - ${{ref_recordBB_var}}
+
+#Item GTS GTSI001
+# subcategory GTSSC001
+
+- var: case_record_type_var
+#  value: "TCB_GTS_Service_Request"
+  value: "TCB_CM_Service_Request"
+#TCB_GTS_Complaint
+
+
+- object: Case
+  fields:
+    Description: ${{Description_var}}
+    Subject: ${{case_subject_var}}
+    AccountId:
+      reference: Account
+    ContactId:
+      reference: Contact
+    Issue_level_1__c: Customer
+    Issue_level_2__c: Other
+    RecordType: ${{case_record_type_var}}
+    Origin: Email
+    Priority: ${{case_Priority_var}}
+    Status: ${{case_Status_var}}
+    CreatedById: ${{ref_owneridBB_001_var}}
+    LastModifiedById: ${{ref_owneridBB_001_var}}
+    OwnerId: ${{ref_owneridBB_001_var}}
+    Topic_and_Category__c: ${{case_Topic_Category_var}}
+    Sub_Category_and_Item__c: ${{case_Subcategory_Item_var}}
+    Topic__c: ${{case_Topic_var}}
+    Category__c: ${{case_Category_var}}
+    Sub_Category__c: ${{case_Sub_Category_var}}
+    Item__c: ${{case_Item_var}}
+    Complexity_Level__c: ${{case_Complexity_Level_var}}
+    Sub_Type__c: ${{case_Sub_Type_var}}
+    In_Charge_Unit__c: ${{case_In_Charge_Unit_var}}
+    TopicandCategoryGTS__c: ${{case_Topic_CategoryGTS_var}}
+    SubCategoryandItemGTS__c: ${{case_Subcategory_ItemGTS_var}}
+    TopicGTS__c: ${{case_TopicGTS_var}}
+    CategoryGTS__c: ${{case_CategoryGTS_var}}
+    SubCategoryGTS__c: ${{case_SubCategoryGTS_var}}
+    ItemGTS__c: ${{case_ItemGTS_var}}
+    CreatedById: ${{case_ownerid_001_var}}
+    LastModifiedById: ${{case_ownerid_001_var}}
+    OwnerId: ${{case_ownerid_001_var}}
+    Receiving_Email__c: ${{company_email_var}}
+    Language: vi
+    Currency__c: VND
+    Reason:
+      random_choice:
+        Customer wants to make a transaction: 40%
+        Customer wants to be reimbursed: 40%
+        Customer wants to receive special offers: 20%
+    Comments: ${{Description_var}}
+    Customer_Feedback__c: ${{Description_var}}
+    Customer_Agree__c:
+      random_choice:
+        Agree: 40%
+        Partial Agree: 40%
+        Not Agree: 20%

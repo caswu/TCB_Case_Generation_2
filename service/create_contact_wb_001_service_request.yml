@@ -1,0 +1,53 @@
+
+- var: Passport_number_var
+  value: ${{fake.Numerify(text='%%#############')}}
+
+- var: Identity_Number_var
+  value: ${{fake.Numerify(text='%%#############')}}
+
+- var: email_var
+  value:
+    ${{firstname_var}}.${{lastname_var}}@testmail.com
+
+#- var: Birthdate_var
+#  value:
+#    ${{fake.DateObject}}
+#    fake.DateOfBirth(0,18,90)
+
+
+- object: Contact
+  nickname: ContactWB
+  fields:
+    Description: ${{Description_var}}
+    FirstName:
+      ${{firstname_var}}
+    LastName:
+      ${{lastname_var}} ${{ref_recordWB_var}} Functional Testing SF Build Team
+    LastNameLocal: ${{lastname_var}} ${{ref_recordWB_var}}
+    email:
+      ${{email_var}}
+    Phone: ${{PhoneNumber2_var}}
+    MobilePhone: ${{PhoneNumber3_var}}
+    Title__c:
+      random_choice:
+        Manager: 40%
+        Officer: 40%
+        CEO: 10%
+        CFO: 10%
+    Title:
+      random_choice:
+        Mr.: 50%
+        Mrs.: 50%
+    Identity_Number__c: ${{Identity_Number_var}}
+    Passport_number__c: ${{Passport_number_var}}
+    Passport_Place_of_issue__c:
+      fake: city
+    Passport_Date_of_Issue__c:
+      ${{passport_issue_date_var}}
+    Birthdate:
+      ${{birthdate_var}}
+    AccountId:
+      reference: Account
+    CreatedById: ${{ref_owneridWB_001_var}}
+    LastModifiedById: ${{ref_owneridWB_001_var}}
+    OwnerId: ${{ref_owneridWB_001_var}}

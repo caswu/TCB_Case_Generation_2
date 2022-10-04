@@ -1,0 +1,10 @@
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
+- plugin: snowfakery.standard_plugins.Salesforce
+#- plugin: snowfakery.standard_plugins.Salesforce.SOQLDataset
+- plugin: snowfakery.standard_plugins.Counters
+- plugin: snowfakery.standard_plugins.UniqueId
+
+- var: snowfakery_locale
+  value: en_US
+
+

@@ -1,0 +1,35 @@
+# To run this code:
+# command line
+# cci task run snowfakery --org tcbcci --run-until-recipe-repeated 1 --recipe datasets/service/create_main_001.yml
+
+- include_file: create_records_params.yml
+
+#- include_file: create_records_params_service_request.yml
+#- include_file: create_records_params_gts_service_request.yml
+# Record for GTS service Request
+
+# 1. GTS service request BB
+#- include_file: create_records_BB_001_gts_service_request.yml
+
+# 2. Service Request BB
+#- include_file: create_records_BB_001_service_request.yml
+
+# 3. GTS Service Request WB
+#- include_file: create_records_WB_001_gts_service_request.yml
+
+# 4. CORP Service Request
+#- include_file: create_records_CORP_001_gts_service_request.yml
+
+# 5. RBG Complaint
+- include_file: create_records_RBG_001_complaint.yml
+
+
+
+
+#not in  use
+
+#- include_file: create_records_BB_002_service_request.yml
+#- include_file: create_records_BB_003_Complaint.yml
+
+# 4. Complaint
+#- include_file: create_records_BB_001_complaint.yml

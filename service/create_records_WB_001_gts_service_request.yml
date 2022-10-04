@@ -1,0 +1,34 @@
+# create account WB
+# record type Case : GTS Service Request
+# WB Line of Business
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category = IMPLEMENT
+#- include_file: create_case_wb_008_params.yml
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category=QLTT
+#- include_file: create_case_wb_009_params.yml
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category=TRADE FINANCE
+#- include_file: create_case_wb_010_params.yml
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category=SCF
+#- include_file: create_case_wb_011_params.yml
+
+#LOB= Wholesale Banking AND Type =  Services Request  AND Category=DVDL
+#- include_file: create_case_wb_012_params.yml
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category=FX
+#- include_file: create_case_wb_013_params.yml
+
+# LOB= Wholesale Banking AND Type =  Services Request  AND Category=Lending
+#- include_file: create_case_wb_014_params.yml
+
+#- include_file: create_account_wb_001_service_request.yml
+#- include_file: create_contact_wb_001_service_request.yml
+- include_file: create_case_wb_001_service_request.yml
+
+# create case team
+- include_file: create_case_bb_001_case_team.yml
+
+#- include_file: create_lead_bb.yml
+#- include_file: create_opportunity_bb.yml

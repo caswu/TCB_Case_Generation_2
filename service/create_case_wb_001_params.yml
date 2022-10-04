@@ -1,0 +1,93 @@
+# create_case_bb_001_params.yml
+# LOB= Business Banking AND Type =  Services Request  AND Category = IMPLEMENT (C0117)	BB-001	
+# Product & Service	T0032	IMPLEMENT	C0117	DIGITAL SIGNATURE	SC0319	Product & Service - IMPLEMENT	TC0123	DIGITAL SIGNATURE	SI0642
+
+# Routing Criteria	Case Scenario	Topic	Topc ID	Category	Category ID	Subcategory	Subcategory ID	Topic & Category	Topic & Category ID	SubCategory & Item	SubCategory & Item ID
+# LOB= Business Banking 
+# AND Type =  Services Request  
+# AND Category = IMPLEMENT (C0117)	BB-001	
+
+# Service request
+- var: Description_var
+  value: "Functional Testing SF Build Team PS8.SR3.2.01 Assign case auto LOB Business Banking AND Record Type Service Request AND Category IMPLEMENT Scenario BB-001"
+
+# serviced request
+- var: case_subject_var
+  value: "Case scenario BB 001 - Functional Testing SF Build Team - ${{company_var}} - ${{ref_recordBB_var}}"
+
+
+
+- var: case_record_type_var
+  value: "TCB_GTS_Service_Request"
+
+- var: case_Priority_var
+  value: "Normal"
+
+- var: case_Status_var
+  value: "In Progress"
+
+- var: case_Origin_var
+  value: "Email"
+
+- var: case_Issue_level_1_var
+  value: "Customer"
+
+- var: case_Issue_level_2_var
+  value: "Other"
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+
+# topic category
+- var: case_Topic_Category_var
+  value: "TC0123"
+
+# Change account information - Instructions on the procedure for changing account information SI0642
+- var: case_Subcategory_Item_var
+  value: "SI0642"
+
+#  topic
+- var: case_Topic_var
+  value: "T0032"
+
+# category
+- var: case_Category_var
+  value: "C0117"
+
+# sub category
+- var: case_Sub_Category_var
+  value: "SC0319"
+
+# item
+#- var: case_Item_var
+#  value: ""
+
+- var: case_Sub_Type_var
+  value: Instruction
+
+- var: case_Complexity_Level_var
+  value: Basic
+
+- var: case_In_Charge_Unit_var
+  value: CCC
+
+#  GTS Catalog
+- var: case_Topic_CategoryGTS_var
+  value: GTSTC001
+
+- var: case_Subcategory_ItemGTS_var
+  value: GTSSI001
+
+- var: case_TopicGTS_var
+  value: GTST001
+
+- var: case_CategoryGTS_var
+  value: GTSC001
+
+- var: case_SubCategoryGTS_var
+  value: GTSSC001
+
+
+
+

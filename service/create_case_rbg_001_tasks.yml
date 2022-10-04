@@ -1,0 +1,98 @@
+
+- var: task_start_date_var
+  value:
+    date_between:
+      start_date: 2022-09-30
+      end_date: 2022-10-30
+
+- var: task_end_date_var
+  value:
+    date_between:
+      start_date: 2022-10-01
+      end_date: 2022-10-30
+
+
+- var: task_start_date1_var
+  value:
+    date_between:
+      start_date: 2022-11-01
+      end_date: 2022-11-30
+
+- var: task_end_date1_var
+  value:
+    date_between:
+      start_date: 2022-12-01
+      end_date: 2022-12-30
+
+- var: task_start_date2_var
+  value:
+    date_between:
+      start_date: 2022-11-01
+      end_date: 2022-11-30
+
+- var: task_end_date2_var
+  value:
+    date_between:
+      start_date: 2022-12-01
+      end_date: 2022-12-30
+
+- object: Task
+  fields:
+    AccountId:
+      reference: Account
+    ActivityDate: ${{task_end_date_var}}
+    Description: "follow up comments 001"
+    Priority: "Low"
+    Start_Date__c: ${{task_start_date_var}}
+    Status: "Not started"
+    Subject: "follow up 001"
+    TaskSubtype: "Task"
+    Type: "Call"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Account.PersonContactId
+    CreatedById: ${{ref_owneridRBG_001_var}}
+    LastModifiedById: ${{ref_owneridRBG_001_var}}
+    OwnerId: ${{ref_owneridRBG_001_var}}
+
+- object: Task
+  fields:
+    AccountId:
+      reference: Account
+    ActivityDate: ${{task_end_date1_var}}
+    Description: "log a call comment 001"
+    Priority: "Low"
+    Start_Date__c: ${{task_start_date1_var}}
+    Status: "Completed"
+    Subject: "Call"
+    TaskSubtype: "Call"
+    Type: "Call"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Account.PersonContactId
+    CreatedById: ${{ref_owneridRBG_001_var}}
+    LastModifiedById: ${{ref_owneridRBG_001_var}}
+    OwnerId: ${{ref_owneridRBG_001_var}}
+
+- object: Task
+  fields:
+#    AccountId:
+#      reference: Account
+    ActivityDate: ${{task_end_date2_var}}
+    Description: "comment task meet online 001"
+    Priority: "Low"
+    Result__c: "result task meet online 001"
+    Start_Date__c: ${{task_start_date2_var}}
+    Status: "Not started"
+    Subject: "task meet online 001"
+    TaskSubtype: "Task"
+    Type: "Meet online"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Account.PersonContactId
+    CreatedById: ${{ref_owneridRBG_001_var}}
+    LastModifiedById: ${{ref_owneridRBG_001_var}}
+    OwnerId: ${{ref_owneridRBG_001_var}}

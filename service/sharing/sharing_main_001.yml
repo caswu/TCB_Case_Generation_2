@@ -1,0 +1,31 @@
+# To run this code:
+# command line
+# cci task run snowfakery --org tcbcci --run-until-recipe-repeated 1 --recipe datasets/service/sharing/sharing_main_001.yml
+
+
+- include_file: sharing_records_params.yml
+
+# Scenario 001 - Case owned by Head of Omni Channel and Subordinates shared with Head of RBG - # BU RBG
+#- include_file: sharing_create_records_001.yml
+
+# Scenario 002 - Case owned by Head of Omni Channel and Subordinates shared with Head of Omni Channel and Subordinates # BU RBG
+#- include_file: sharing_create_records_002.yml
+
+# Scenario 003 - Case owned by Head of Omni Channel and Subordinates shared with CFM Manager # BU RBG
+#- include_file: sharing_create_records_003.yml
+
+# Scenario 004 - Case owned by Head of Omni Channel and Subordinates shared with CFM Manager # BU RBG
+#- include_file: sharing_create_records_004.yml
+
+# Scenario 005 - Case owned by Head of Omni Channel and Head of CA and Subordinates # BU RBG
+- include_file: sharing_create_records_005.yml
+
+
+
+#not in  use
+
+#- include_file: create_records_BB_002_service_request.yml
+#- include_file: create_records_BB_003_Complaint.yml
+
+# 4. Complaint
+#- include_file: create_records_BB_001_complaint.yml

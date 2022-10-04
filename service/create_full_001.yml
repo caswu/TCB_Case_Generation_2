@@ -1,0 +1,43 @@
+# To run this code:
+# make sure to have the permission set assigned to you when running the scripts
+# Permission set name: TCB Admin - Record generation for testing - do not assign to standard users
+# command line below
+# cci task run snowfakery --org tcbcci --run-until-recipe-repeated 1 -o drop_missing_schema True --recipe datasets/service/create_full_001.yml
+# To test locally record generation run command below
+# snowfakery datasets/service/create_full_001.yml
+
+- include_file: create_records_full_params.yml
+
+
+#ref_owneridWB_001_var
+
+#- include_file: create_records_params_service_request.yml
+#- include_file: create_records_params_gts_service_request.yml
+# Record for GTS service Request
+
+# 1. GTS service request BB
+- include_file: create_records_BB_full_001_gts_service_request.yml
+
+# 2. GTS Service Request WB
+#- include_file: create_records_WB_full_001_gts_service_request.yml
+
+# 3. CORP Service Request
+#- include_file: create_records_CORP_full_001_gts_service_request.yml
+
+
+
+
+
+# BELOW not in  use yet
+
+# 5. RBG Complaint
+#- include_file: create_records_RBG_001_complaint.yml
+
+#- include_file: create_records_BB_002_service_request.yml
+#- include_file: create_records_BB_003_Complaint.yml
+
+# 4. Complaint
+#- include_file: create_records_BB_001_complaint.yml
+
+# 2. Service Request BB
+#- include_file: create_records_BB_full_001_service_request.yml

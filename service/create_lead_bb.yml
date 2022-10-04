@@ -1,0 +1,17 @@
+
+- var: leadname_var
+  value:
+    fake: company
+
+- object: lead
+  nickname: LeadBB
+  fields:
+      lastname:
+        fake: lastname
+      LeadSource: Other
+      Status: Assigned
+      Product_Group__c: Lending
+      Campaign__c: 701N0000000l4qtIAA
+      Expected_close_date__c: 2022-1-1
+      Company: ${{leadname_var}} ${{ref_recordBB_var}}
+      RecordType: TCB_BB_Business

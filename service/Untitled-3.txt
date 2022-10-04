@@ -1,0 +1,173 @@
+
+Good evening Joshua,
+
+Following the call this afternoon and your request, please find below  my understanding of the 2 CRs to be built
+
+
+
+
+From your confluence page, https://confluence.techcombank.com.vn/pages/viewpage.action?pageId=225794899    i see the 2 items which needs to be developed and we need to give an estimate on.
+
+(I attach the user stories and a screenshot as CY does not have access to Confluence)
+
+1. CR - 0018	
+CORP	Service	GTS: change flows, several SLAs, entitlements, milestones, notifications, escalation...	GTS users can not use service for case management.
+
+There is no link to any confluence page giving exactly the requirements they want to change.
+Salesforce is  expected to give an estimate  on a one liner: "change flows, several SLAs, entitlements, milestones, notifications, escalation..."
+in my view it is not enough to assess the effort.
+
+HP mentioned that she aligned with business. SF Service built team was not in any of those calls. We have no knowledge of was exactly aligned, decided.
+
+Salesforce is taking a very big risk on being requested to provide estimate on just a one line of requirement. it could take 1 week, it could take 6 weeks.
+
+As a reminder, the original "flows, SLAs, entitlements, milestones, notifications, escalations" stories in MVP1 took 3 sprints to complete.
+
+I see as well a date which seems already committed on Confluence by the PMs: 14 Nov 2022.
+As a salesforce architect, I would not agree to commit on that date and even start a sprint to build something without even having received the requirements in writing to understand what needs to be completed, clarified, validated.
+
+I have not seen any user stories in confluence defining the complete requirements for the changes to be done. And we are expected to start the sprint next week.
+
+
+2.CR-0037
+
+Extract:
+
+"GTS value selection - It's not change request . Our requirement was raised at the beginning of design (13/05/2022) and get confirmed it's out of the box function
+Scenario:
+CCC Agent is the user received request from customer. He create a new case that use Service Catalog. But after choose the value in Topic-Category and Subcategory-Item, the In charge Unit field auto displays value “GTS Service” - so this case will be transfer owner to GTS Service. In GTS Service we use skill based routing to route case to specific user based on the value in Topic-Category and Subcategory-Item (follow GTS Catalog) – which is need to chosen by CCC Agent."
+
+TCB business impact
+Business impact:
+Automatic "assignment flow from CCC to GTS not run. GTS user must go to queue and update catalog manually  =>don't meet end user expectation ( now weblog can assign to person in charge automatically)=> Can't adopt end user
+GTS and CCC will need to continue keep offline communication ( email) to  process case"
+
+business impact given by TCB (whoever wrote those lines) is incorrect.
+
+user does not have to update catalog manually, case assignment and routing is running automatically.
+
+
+Salesforce architect business impact version
+
+refactor case assignment flow for new picklists fields
+refactor omni channel routing
+add validation rules to page layouts
+add 4 new dependent picklist for GTS catalog values to page layouts
+remove GTS catalog values from existing 4 dependent picklists
+refactor custom automation to route case from Service to GTS queue based on new GTS picklist values fields and in charge unit = GTS Servic
+
+
+A. per the user stories requirements (signed off by TCB and Salesforce)
+
+PS8.SR3.1.02 Create case manually
+PS8.SR.4.1.02 Create case manually
+
+
+We used out of the box functionality (as requested by TCB) in order to have 2 types of case records:
+
+case created by Service
+Case created by GTS Service
+
+This standard approach allows to filter picklist values to be displayed in the case based on the type of cases
+This is what we understood from the  2 user stories above.
+
+No mention of this change was done by TCB during 7 sprints sprint demo and access to the  demo sandboxes after each sprint.
+
+
+B. Request which came up at the end of the UAT
+
+
+picklists values for GTS catalog and service catalog must be on the same page layout
+
+there must be a set of 5 level dependent picklists fields for Service Catalog
+there must be a set of 4 level dependent picklists field for GTS Service Catalog
+(SF platform does not even support that level of dependent picklists)
+
+- an agent from Service must be able to create a case.
+- he makes the selections first for the Service catalog dependent picklists
+
+If in  the picklist field "in charge unit", "GTS Service"  is selected, he must select values in the 4 dependent picklists fields for GTS catalog
+
+a validation rule must not allow the agent to save the case if the values are not selected.
+
+when the  agent saves the case, case routing to GTS queues is  done (this part is built)
+
+
+the issue is ion the routing and case assignment process.
+
+at present , the flows look in the 4 existing picklists  in order to check for the criteria which will  assign or route correctly the case record.
+(example)
+
+the change would require top refactor the flows to look up in different picklist fields depending on the type opf cases.
+
+Reading the 2 user stories above, I can not see anywhere something similar which is described in the user story requirements.
+
+it is correct that creating  4 new fields on a page layout is possible.
+
+but in that case we have the work which was done during 2 sprints in terms of omni channel routing and case assignment to refactor.
+
+
+I have not seen any user stories in confluence defining the complete requirements for the changes to be done. and we are expected to start the sprint next week.
+
+the 2 original user stories do not describe all this requirements
+PS8.SR3.1.02 Create case manually
+PS8.SR.4.1.02 Create case manually
+
+
+even if you think you can find the requirements in the user stories above, we did not . and  we will need a revised and validated version in order to build a single time the change.
+but it my view, i can not even find the beginning in the user stories
+
+
+Summary
+
+- I do not think it is reasonable to plan a sprint for the upcoming week without having defined and received from TCB written requirements which are validated and finalized.
+
+- for both CR-0018 and CR-0037, we will need to have in Confluence, the complete written requirements to start the built in order to minimize delays and optimize the sprint build time.
+
+
+
+Hope it clarifies the  topics covered.
+
+
+Best,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2 GTS requirements
+
+
+CR - 0018
+- Flows,
+- SLA,
+- Entitlement,
+- milestones,
+- Notification,
+- Escalations
+
+on the spreadsheet, we are given this link 
+
+https://confluence.techcombank.com.vn/display/~tranglb
+
+I do not see any requirement on that link in order to be able to conduct a Build
+
+
+
+task 
+003N000001vICe9IAG
+
+001N0000027IFa2IAG

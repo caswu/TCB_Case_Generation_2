@@ -1,0 +1,66 @@
+
+- var: task_start_date_var
+  value:
+    date_between:
+      start_date: 2022-09-25
+      end_date: 2022-09-30
+
+- var: task_activity_date_var
+  value:
+    date_between:
+      start_date: 2022-09-30
+      end_date: 2022-10-30
+
+- object: Task
+  fields:
+    AccountId:
+      reference: Account
+    ActivityDate: 2022-09-25
+    Description: "follow up comments 001"
+    Priority: "Low"
+    Start_Date__c: 2022-09-30
+    Status: "Not started"
+    Subject: "follow up 001"
+    TaskSubtype: "Task"
+    Type: "Call"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Contact
+
+
+- object: Task
+  fields:
+    AccountId:
+      reference: Account
+    ActivityDate: 2022-09-28
+    Description: "log a call comment 001"
+    Priority: "Low"
+    Start_Date__c: 2022-09-30
+    Status: "Completed"
+    Subject: "Call"
+    TaskSubtype: "Call"
+    Type: "Call"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Contact
+
+
+- object: Task
+  fields:
+#    AccountId:
+#      reference: Account
+    ActivityDate: 2022-09-28
+    Description: "comment task meet online 001"
+    Priority: "Low"
+    Result__c: "result task meet online 001"
+    Start_Date__c: 2022-09-30
+    Status: "Not started"
+    Subject: "task meet online 001"
+    TaskSubtype: "Task"
+    Type: "Meet online"
+    WhatId:
+      reference: Case
+    WhoId:
+      reference: Contact

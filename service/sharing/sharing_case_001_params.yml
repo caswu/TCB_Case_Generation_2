@@ -1,0 +1,105 @@
+# create_case_bb_001_params.yml
+
+- var: ref_recordRBG_var
+  value: '${{fake.Bothify(text=''BU RBG: #####'', letters=''RBG'')}}'
+
+# Service request
+# - var: Description_var
+#   value: "Functional Testing SF Build Team PS8.SR4.2.01 Assign case auto Scenario RBG-020 - ${{ref_recordRBG_var}}"
+
+# serviced request
+# - var: case_subject_var2
+#   value: "Case scenario RBG-020 - Functional Testing SF Build Team - ${{company_var}} - ${{ref_recordRBG_var}}"
+
+
+# record owner: RBG
+- var: sharing_ownerid_001_var
+  value: 005N000000C5lCZIAZ
+
+
+
+
+
+- var: email_var
+  value:
+    ${{firstname_var}}.${{lastname_var}}@testmail.com
+
+
+
+- var: account_RecordTypeWB_var
+  value: TCB_WB_Normal_Account
+
+- var: case_record_type_var
+  value: "TCB_GTS_Service_Request"
+
+- var: case_Priority_var
+  value: "Normal"
+
+- var: case_Status_var
+  value: "New"
+
+- var: case_Origin_var
+  value: "Email"
+
+- var: case_Issue_level_1_var
+  value: "Customer"
+
+- var: case_Issue_level_2_var
+  value: "Other"
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+
+# topic category
+- var: case_Topic_Category_var
+  value: "TC0123"
+
+# Change account information - Instructions on the procedure for changing account information SI0642
+- var: case_Subcategory_Item_var
+  value: "SI0642"
+
+#  topic
+- var: case_Topic_var
+  value: "T0032"
+
+# category
+- var: case_Category_var
+  value: "C0117"
+
+# sub category
+- var: case_Sub_Category_var
+  value: "SC0319"
+
+# item
+#- var: case_Item_var
+#  value: ""
+
+- var: case_Sub_Type_var
+  value: Instruction
+
+- var: case_Complexity_Level_var
+  value: Basic
+
+- var: case_In_Charge_Unit_var
+  value: CCC
+
+#  GTS Catalog
+- var: case_Topic_CategoryGTS_var
+  value: GTSTC001
+
+- var: case_Subcategory_ItemGTS_var
+  value: GTSSI001
+
+- var: case_TopicGTS_var
+  value: GTST001
+
+- var: case_CategoryGTS_var
+  value: GTSC001
+
+- var: case_SubCategoryGTS_var
+  value: GTSSC001
+
+
+
+

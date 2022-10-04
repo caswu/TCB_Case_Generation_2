@@ -1,0 +1,51 @@
+
+- object: Case
+  fields:
+    Description: ${{Description_var}}
+    Subject: ${{case_subject_var}}
+    AccountId:
+      reference: Account
+    ContactId:
+      reference: Contact
+    Issue_level_1__c: Customer
+    Issue_level_2__c: Other
+    RecordType: ${{case_record_type_var}}
+    Origin: Email
+    Priority: ${{case_Priority_var}}
+    Status: ${{case_Status_var}}
+    CreatedById: ${{ref_owneridBB_001_var}}
+    LastModifiedById: ${{ref_owneridBB_001_var}}
+    OwnerId: ${{ref_owneridBB_001_var}}
+    Topic_and_Category__c: ${{case_Topic_Category_var}}
+    Sub_Category_and_Item__c: ${{case_Subcategory_Item_var}}
+    Topic__c: ${{case_Topic_var}}
+    Category__c: ${{case_Category_var}}
+    Sub_Category__c: ${{case_Sub_Category_var}}
+    Item__c: ${{case_Item_var}}
+    Complexity_Level__c: ${{case_Complexity_Level_var}}
+    Sub_Type__c: ${{case_Sub_Type_var}}
+    In_Charge_Unit__c: ${{case_In_Charge_Unit_var}}
+    TopicandCategoryGTS__c: ${{case_Topic_CategoryGTS_var}}
+    SubCategoryandItemGTS__c: ${{case_Subcategory_ItemGTS_var}}
+    TopicGTS__c: ${{case_TopicGTS_var}}
+    CategoryGTS__c: ${{case_CategoryGTS_var}}
+    SubCategoryGTS__c: ${{case_SubCategoryGTS_var}}
+    ItemGTS__c: ${{case_ItemGTS_var}}
+    CreatedById: ${{case_ownerid_001_var}}
+    LastModifiedById: ${{case_ownerid_001_var}}
+    OwnerId: ${{case_ownerid_001_var}}
+    Receiving_Email__c: ${{company_email_var}}
+    Language: vi
+    Currency__c: VND
+    Reason:
+      random_choice:
+        Customer wants to make a transaction: 40%
+        Customer wants to be reimbursed: 40%
+        Customer wants to receive special offers: 20%
+    Comments: ${{Description_var}}
+    Customer_Feedback__c: ${{Description_var}}
+    Customer_Agree__c:
+      random_choice:
+        Agree: 40%
+        Partial Agree: 40%
+        Not Agree: 20%

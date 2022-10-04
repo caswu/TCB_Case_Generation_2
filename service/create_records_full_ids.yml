@@ -1,0 +1,44 @@
+
+#User ids for scenario
+
+# Account record owner: BB
+- var: bb_ownerid_var
+  value: 005N000000C5KFK
+
+#- var: ref_owneridBB_001_var
+#  value: 005N000000C5KFK
+
+# Account record owner: WB
+
+- var: ref_owneridWB_001_var
+  value: 005N000000C5lCZIAZ
+
+#- var: ref_contactWB_001_var
+#  value: 003N000001uXtyBIAS
+
+# Account record owner: RBG
+- var: ref_owneridRBG_001_var
+  value: 005N000000C5EglIAF
+
+
+# Case record owner: CA Expert
+- var: case_ownerid_var
+  value: 005N000000C5FmrIAF
+
+# Case record owner: GTS
+#- var: case_ownerid_var
+#  value:
+
+# Case record owner: Mkt Expert
+#- var: case_ownerid_var
+#  value:
+
+# Case record owner: IT Expert
+#- var: case_ownerid_var
+#  value:
+
+# Case Source  (overwrites the params files value)
+
+- var: case_Origin_var
+  value: "Phone"
+

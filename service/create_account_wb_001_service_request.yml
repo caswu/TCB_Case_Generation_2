@@ -1,0 +1,73 @@
+
+- var: case_Tax_Code_var
+  value: ${{fake.Numerify(text='%%###########')}}
+
+- var: case_Segment_var
+  value: "MM"
+
+- var: case_Sub_segment_var
+  value: "Services Other"
+
+- object: Account
+  nickname: AccountWB
+  fields:
+    Description: ${{Description_var}}
+    Name: ${{company_var}} - ${{ref_recordWB_var}} - Functional Testing SF Build Team
+    BillingStreet:
+      fake: StreetAddress
+    BillingCity:
+      ${{city_var}}
+  #  City__pc: ${{city_var}}
+    City_province_Business_Registration__c: ${{city_var}}
+  #  City_province_Mailing_Billing__c: ${{city_var}}
+    BillingState:
+      fake: State
+    BillingPostalCode:
+      fake: PostalCode
+    BillingCountry:
+      ${{country_var}}
+  #  Country__pc: ${{country_var}}
+    Country_Business_Registration__c: ${{country_var}}
+    Phone:
+      ${{PhoneNumber1_var}}
+    Tax_Code__c: ${{case_Tax_Code_var}}
+    Segment__c: ${{case_Segment_var}}
+    Sub_segment__c: ${{case_Sub_segment_var}}
+    CreatedById: ${{ref_owneridWB_001_var}}
+    LastModifiedById: ${{ref_owneridWB_001_var}}
+    OwnerId: ${{ref_owneridWB_001_var}}
+    RecordType: ${{account_RecordTypeWB_var}}
+    Social_Name__c: ${{company_var}}
+    Company_Email__c: ${{company_email_var}}
+# Website:
+    Fax: ${{PhoneNumber4_var}}
+    Eco_sector__c:
+      random_choice:
+        Manufacturing: 40%
+        Other: 40%
+        Services: 20%
+    Customer_Group__c:
+      random_choice:
+        A: 40%
+        B: 40%
+        C: 20%
+    NumberOfEmployees:
+      random_number:
+        min: 10
+        max: 250
+    Total_assets__c:
+      random_number:
+        min: 7000000
+        max: 11000000
+    Total_debt__c:
+      random_number:
+        min: 200000
+        max: 500000
+    Total_receivable__c:
+      random_number:
+        min: 1000000
+        max: 1200000
+    Total_payable__c:
+      random_number:
+        min: 250000
+        max: 450000

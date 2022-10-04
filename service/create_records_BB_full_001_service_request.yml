@@ -1,0 +1,32 @@
+# create account BB
+# record type Case : service request
+
+# 1 LOB= Business Banking AND Type =  Services Request  AND Category = IMPLEMENT (C0117) BB-001
+
+- include_file: create_case_bb_001_params.yml
+- include_file: create_case_bb_full_records.yml
+
+
+# 2 LOB= Business Banking AND Type =  Services Request  AND Category=QLTT	BB-002
+
+- include_file: create_case_bb_002_params.yml
+- include_file: create_case_bb_full_records.yml
+
+# 3 LOB= Business Banking AND Type =  Services Request  AND Category=TRADE FINANCE BB-003
+- include_file: create_case_bb_003_params.yml
+- include_file: create_case_bb_full_records.yml
+
+
+# not in use
+# backup do not delete
+
+#- include_file: create_account_bb_001_service_request.yml
+#- include_file: create_contact_bb_001_service_request.yml
+#- include_file: create_case_bb_001_service_request.yml
+
+
+# create case team
+# - include_file: create_case_bb_001_case_team.yml
+
+#- include_file: create_lead_bb_001.yml
+#- include_file: create_opportunity_bb_001.yml

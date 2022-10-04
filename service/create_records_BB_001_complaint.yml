@@ -1,0 +1,20 @@
+# create account BB
+# record type Case : Complaint
+
+# complaint
+- var: Description_var
+  value: "Functional Testing SF Build Team  BB Complaint record type"
+
+- var: case_subject_var
+  value: "Case scenario BB Complaint - Functional Testing SF Build Team - ${{company_var}} - ${{ref_recordBB_var}}"
+
+
+- include_file: create_account_bb_001_complaint.yml
+- include_file: create_contact_bb_001_complaint.yml
+- include_file: create_case_bb_001_complaint.yml
+# create case team
+- include_file: create_case_bb_001_case_team.yml
+
+
+#- include_file: create_lead_bb_001.yml
+#- include_file: create_opportunity_bb_001.yml

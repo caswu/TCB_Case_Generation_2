@@ -1,0 +1,229 @@
+snowfakery datasets/tcb_records_001.yml
+
+
+snowfakery datasets/service/create_main_001.yml
+
+
+cci task run generate_and_load_from_yaml -o drop_missing_schema True -o generator_yaml datasets/service/create_main_001.yml --org tcbcci
+
+cci task run generate_and_load_from_yaml -o generator_yaml datasets/service/create_main_001.yml --org tcbcci
+
+
+datasets/service/create_main_001.yml
+
+cci task run generate_and_load_from_yaml -o generator_yaml datasets/service/create_main_001.yml --org tcbcci
+
+$ cci task run generate_and_load_from_yaml --run-until-recipe-repeated 400
+
+snowfakery datasets/service/create_full_001.yml
+
+
+cci task run generate_and_load_from_yaml -o drop_missing_schema True -o generator_yaml datasets/service/create_main_001.yml --org tcbcci
+
+cci task run snowfakery --org tcbcci --run-until-recipe-repeated 1 -o drop_missing_schema True --recipe datasets/service/create_full_001.yml
+
+
+/Users/obaelde/.local/
+
+
+sudo chown -R $(whoami) /Users/obaelde/.local/pipx
+chmod u+w /Users/obaelde/.local/pipx
+
+pipx upgrade cumulusci
+
+
+cci task run snowfakery --org tcbcci -o drop_missing_schema True --run-until-recipe-repeated 1 --recipe datasets/service/create_main_001.yml
+
+
+
+- object: Person
+  fields:
+    gender:
+      random_choice:
+        Male: 40%
+        Female: 40%
+        Other: 20%
+    name:
+      if:
+        - choice:
+            when: ${{gender=='Male'}}
+            pick:
+              fake: FirstNameMale
+
+        - choice:
+            when: ${{gender=='Female'}}
+            pick:
+              fake: FirstNameFemale
+
+        - choice:
+            pick:
+              fake: FirstNameNonBinary
+
+
+--recipe datasets/some_snowfakery_recipe.yml
+
+cci org connect <org_name> --sandbox
+
+
+cci task run snowfakery 
+
+case
+
+TCB_CM_Complaint
+TCB_CM_Service_Request
+
+
+RecordTypeId
+
+    RecordType:
+      SalesforceQuery.find_record:
+            from: RecordType
+            where: DeveloperName='TCB_CM_Complaint'
+
+
+
+
+            No default org is set. Run "SFDX: Create a Default Scratch Org" or "SFDX: Authorize an Org" to set one.
+Starting SFDX: Authorize an Org
+
+06:54:25.5 sfdx force:auth:web:login --setalias tcbcci --instanceurl https://test.salesforce.com --setdefaultusername
+Successfully authorized tsa2@techcombank.com.vn.sfdev with org ID 00DN0000000cCu9MAE
+06:54:34.296 sfdx force:auth:web:login --setalias tcbcci --instanceurl https://test.salesforce.com --setdefaultusername
+ ended with exit code 0
+
+
+     RecordType:
+      TCB_CM_Complaint
+
+
+AC1: FOR CORPORATION ONLY:
+With GTS category , using skill base routing to assign case to specific user
+
+AC1: FOR CORPORATION ONLY:
+With GTS category , using skill base routing to assign case to specific user
+
+AC2: FOR CORPORATION ONLY
+Given that User wants to assign case to a specific user/ queue
+When case is assigned successfully
+Then system auto sends notification pop up on CRM & sends email to assignee/manager of assignee/all members of queue.
+
+CORP 
+
+BB
+WB
+
+
+
+User, CA Expert/ Officer 2	ca0001	ca0001@techcombank.com.vn.sfdev	CA Expert/ Officer	Checked	TCB CA
+
+
+
+SELECT Metadata FROM CustomField WHERE TableEnumOrId = '<Table Name>' AND DeveloperName = '<FieldName>'
+
+
+
+Error: Error on record with id 1: CANNOT_EXECUTE_FLOW_TRIGGER: We can't save this record because the “TCB Case Assignment” process failed. Give your Salesforce admin these details. <b>An unhandled fault has occurred in this flow</b><br>An unhandled fault has occurred while processing the flow.  Please contact your system administrator for more 
+information. Error ID: 822291406-147838 (970533960)ease contact your system administrator for more information. Error ID: 822291406-147838 (970533960) ()
+
+
+
+
+#    Topic_and_Category__c: ${{case_Topic_Category_var}}
+#    Sub_Category_and_Item__c: ${{case_Subcategory_Item_var}}
+#    Topic__c: ${{case_Topic_var}}
+#    Category__c: ${{case_Category_var}}
+#    Sub_Category__c: ${{case_SubCategory_var}}
+#    Item__c: ${{case_Item_var}}
+#    Priority: Normal
+#    Status: New
+#    Origin: Email
+
+
+#     CreatedById: ${{ref_owneridBB_001_var}}
+#     LastModifiedById: ${{ref_owneridBB_001_var}}
+#     OwnerId: ${{ref_owneridBB_001_var}}
+
+
+- object: case
+#   nickname: CaseBB
+  fields:
+#     Topic_and_Category__c: ${{case_Topic_Category_var}}
+#     Sub_Category_and_Item__c: ${{case_Subcategory_Item_var}}
+#     Topic__c: ${{case_Topic_var}}
+#     Category__c: ${{case_Category_var}}
+#     Sub_Category__c: ${{case_SubCategory_var}}
+#     Item__c: ${{case_Item_var}}
+    Subject: ${{case_subject_var}}
+    AccountId:
+      reference: Account
+    ContactId:
+      reference: Contact
+#     Description: ${{case_description_var}}
+#     Priority: ${{case_Priority_var}}
+#     Status: ${{case_Status_var}}
+#     Issue_level_1__c: ${{case_Issue_level_1_var}}
+#     Issue_level_2__c: ${{case_Issue_level_2_var}}
+#     CreatedById: ${{ref_owneridBB_001_var}}
+#     LastModifiedById: ${{ref_owneridBB_001_var}}
+#     OwnerId: ${{ref_owneridBB_001_var}}
+    RecordType: ${{case_record_type_var}}
+    Origin: ${{case_Origin_var}}
+
+
+
+
+00002242	Rios and Sons - BU: BB-91331619	IMPLEMENT	C0001	500N000000IdoloIAB		I0454	Email	GTSSI001	GTSSC001	SI0245	SC0127	Instruction	GTSTC001	Product & Service	TC0001	T0001
+
+Requested in 0.552 sec
+500N000000IdoloIAB
+
+
+CaseNumber	Case_Account_Name__c	CategoryGTS__c	Category__c	Id	ItemGTS__c	Item__c	Origin	SubCategoryandItemGTS__c	SubCategoryGTS__c	Sub_Category_and_Item__c	Sub_Category__c	Sub_Type__c	TopicandCategoryGTS__c	TopicGTS__c	Topic_and_Category__c	Topic__c
+1	00002242	Rios and Sons - BU: BB-91331619	IMPLEMENT	C0001	500N000000IdoloIAB		I0454	Email	GTSSI001	GTSSC001	SI0245	SC0127	Instruction	GTSTC001	Product & Service	TC0001	T0001
+
+
+TCB_GTS_Service_Request
+
+
+
+CaseNumber	Case_Account_Name__c	CategoryGTS__c	Category__c	Id	ItemGTS__c	Item__c	Origin	SubCategoryandItemGTS__c	SubCategoryGTS__c	Sub_Category_and_Item__c	Sub_Category__c	Sub_Type__c	TopicandCategoryGTS__c	TopicGTS__c	Topic_and_Category__c	Topic__c
+1	00002243	Rios and Sons - BU: BB-91331619		C0117	500N000000IdolyIAB			Email	GTSSI001		SI0646	SC0322	Instruction	GTSTC001		TC0123	T0032
+
+
+    Industry:
+      random_choice:
+        Male: 40%
+        Female: 40%
+        Other: 20%
+
+
+        ${{fake.DateObject}}
+
+
+
+        - var: email_var
+  value:
+    ${{firstname_var}}.${{lastname_var}}@testmail.com
+
+
+
+
+
+# Functional Testing SF Build Team - PS8.SR3.2.01 Assign case auto
+# LOB= Business Banking AND RecordType =  Service Request  AND Category = IMPLEMENT
+
+#- var: case_LOB_Code_var
+# Defined by account and formula field
+#  value: Business Banking
+
+#- var: case_Record_Type_var
+#  value: Service Request
+
+
+
+
+
+SELECT CommentBody,CreatedById,CreatedDate,Id,IsDeleted,IsPublished,LastModifiedById,LastModifiedDate,ParentId,SystemModstamp FROM CaseComment ORDER BY CreatedDate DESC NULLS LAST LIMIT 2
+
+
+SELECT Content,ContentModifiedDate,ContentSize,CreatedById,CreatedDate,FileExtension,FileType,Id,IsDeleted,IsReadOnly,LastModifiedById,LastModifiedDate,LastViewedDate,LatestContentId,LatestPublishedVersionId,OwnerId,SharingPrivacy,TextPreview,Title FROM ContentNote
